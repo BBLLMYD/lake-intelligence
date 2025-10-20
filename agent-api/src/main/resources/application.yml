@@ -1,0 +1,78 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: lake-intelligence-api
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:agent_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+# Agent框架配置
+lake:
+  agent:
+    enabled: true
+    manager:
+      max-agents: 50
+      timeout: 30000
+      monitoring: true
+    ai:
+      provider: openai
+      models:
+        default: gpt-3.5-turbo
+      api-config:
+        base-url: https://api.openai.com/v1
+        # api-key: your-openai-api-key
+    tools:
+      enabled: true
+      scan-packages:
+        - com.lake.agent.tools
+
+# MyBatis Plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# Swagger/OpenAPI配置
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+# 日志配置
+logging:
+  level:
+    com.lake.agent: DEBUG
+    org.springframework.ai: DEBUG
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
