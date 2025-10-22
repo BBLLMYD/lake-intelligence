@@ -289,17 +289,4 @@ public class MyAgentManager implements AgentManager {
   - 基础工具集
   - 示例应用
 
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
-
-## 🙏 致谢
-
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [Spring AI](https://spring.io/projects/spring-ai)
-- [MyBatis Plus](https://baomidou.com/)
-- [Hutool](https://hutool.cn/)
-
----
-
-**Lake Intelligence Team** - 让AI更智能，让开发更简单
+  
