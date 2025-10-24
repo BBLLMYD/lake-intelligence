@@ -69,7 +69,6 @@ lake-intelligence/
 
 4. **访问应用**
    - 应用地址: http://localhost:8080
-   - Swagger UI: http://localhost:8080/swagger-ui.html
    - H2 数据库控制台: http://localhost:8080/h2-console
 
 ## 🔧 使用指南
@@ -212,20 +211,9 @@ curl -X POST http://localhost:8080/api/v1/agents/{agentId}/chat \
 
 ## 🔍 监控和调试
 
-### 日志配置
-项目使用 SLF4J + Logback，支持详细的调试日志：
-
-```yaml
-logging:
-  level:
-    com.lake.agent: DEBUG
-    org.springframework.ai: DEBUG
-```
-
 ### 性能监控
 - Agent 执行时间统计
 - 消息处理成功率
-- 系统资源使用情况
 
 ## 🧪 测试
 
@@ -273,20 +261,5 @@ public class MyAgentManager implements AgentManager {
 }
 ```
 
-## 🤝 贡献指南
-
-1. Fork 项目
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开 Pull Request
-
-## 📝 版本说明
-
-- **1.0.0-SNAPSHOT**: 初始版本
-  - 核心 Agent 框架
-  - Spring Boot 集成
-  - 基础工具集
-  - 示例应用
 
   
